@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Трекінг завдань — кастомна тема поверх Bootstrap 5
+   ========================================================================== */
+
+:root {
+    --tt-primary: #6366f1;
+    --tt-primary-dark: #4338ca;
+    --tt-bg: #f7f8fc;
+    --tt-low: #64748b;
+    --tt-medium: #2563eb;
+    --tt-high: #e11d48;
+    --tt-todo: #64748b;
+    --tt-progress: #d97706;
+    --tt-done: #16a34a;
+}
+
+body {
+    background-color: var(--tt-bg);
+    color: #1e293b;
+}
+
+/* ---------- Навигация ---------- */
+
+.navbar.bg-dark {
+    background: linear-gradient(90deg, var(--tt-primary-dark), var(--tt-primary)) !important;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* ---------- Бейджи статусов и приоритетов ---------- */
+
+.badge-priority-low,
+.badge-status-todo { background-color: var(--tt-low); }
+
+.badge-priority-medium { background-color: var(--tt-medium); }
+.badge-status-in_progress { background-color: var(--tt-progress); }
+
+.badge-priority-high { background-color: var(--tt-high); }
+.badge-status-done { background-color: var(--tt-done); }
+
+.badge {
+    font-weight: 500;
+    padding: 0.4em 0.75em;
+    border-radius: 50rem;
+}
+
+/* ---------- Дашборд-статистика ---------- */
+
+.stat-card {
+    border: none;
+    border-radius: 1rem;
+    padding: 1.1rem 1.25rem;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card .stat-number {
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-card .stat-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-card .bi {
+    position: absolute;
+    right: 0.6rem;
+    top: 0.6rem;
+    font-size: 2.1rem;
+    opacity: 0.25;
+}
+
+.stat-card.stat-total { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.stat-card.stat-todo { background: linear-gradient(135deg, #94a3b8, #64748b); }
+.stat-card.stat-progress { background: linear-gradient(135deg, #fbbf24, #d97706); }
+.stat-card.stat-done { background: linear-gradient(135deg, #4ade80, #16a34a); }
+.stat-card.stat-overdue { background: linear-gradient(135deg, #fb7185, #e11d48); }
+
+/* ---------- Карточки завдань ---------- */
+
+.card-task {
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    border-left: 4px solid var(--tt-medium);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-task:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.card-task.priority-low { border-left-color: var(--tt-low); }
+.card-task.priority-medium { border-left-color: var(--tt-medium); }
+.card-task.priority-high { border-left-color: var(--tt-high); }
+
+.card-task.task-overdue {
+    border-left-color: var(--tt-high);
+    background: linear-gradient(180deg, #fff5f5 0%, #fff 12%);
+}
+
+.card-task .card-title a {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.card-task .card-title a:hover { color: var(--tt-primary); }
+
+.card-footer {
+    border-top: 1px solid #f1f5f9;
+    border-radius: 0 0 1rem 1rem !important;
+}
+
+/* ---------- Форма фільтрів ---------- */
+
+.filter-panel {
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+}
+
+/* ---------- Порожній стан ---------- */
+
+.empty-state {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    border-radius: 1rem;
+    background: #fff;
+    border: 1px dashed #cbd5e1;
+}
+
+.empty-state .bi {
+    font-size: 2.8rem;
+    color: var(--tt-primary);
+    opacity: 0.6;
+}
+
+/* ---------- Деталі завдання ---------- */
+
+.task-hero {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    border-top: 5px solid var(--tt-medium);
+}
+
+.task-hero.priority-low { border-top-color: var(--tt-low); }
+.task-hero.priority-medium { border-top-color: var(--tt-medium); }
+.task-hero.priority-high { border-top-color: var(--tt-high); }
+.task-hero.task-overdue { border-top-color: var(--tt-high); }
+
+.avatar-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--tt-primary), var(--tt-primary-dark));
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.comment-item {
+    border-radius: 0.75rem;
+    border: 1px solid #eef0f4;
+    background: #fff;
+}
+
+/* ---------- Кнопки ---------- */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--tt-primary), var(--tt-primary-dark));
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--tt-primary-dark), var(--tt-primary-dark));
+}
+
+/* ---------- Формы аутентификации ---------- */
+
+.auth-card {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Базовая стилизация полей стандартных форм Django (login и т.п.),
+   у которых нет собственных Bootstrap-классов в виджетах */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+}
+
+form input:focus {
+    outline: none;
+    border-color: var(--tt-primary);
+    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.15);
+}

@@ -1,0 +1,53 @@
+{% extends 'tasks/base.html' %}
+{% block title %}{% if object %}Редагування завдання{% else %}Нове завдання{% endif %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card auth-card p-4">
+            <h1 class="h4 mb-4 d-flex align-items-center gap-2">
+                {% if object %}
+                    <i class="bi bi-pencil-square"></i> Редагування завдання
+                {% else %}
+                    <i class="bi bi-plus-circle"></i> Нове завдання
+                {% endif %}
+            </h1>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.title.label }}</label>
+                    {{ form.title }}
+                    {{ form.title.errors }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.description.label }}</label>
+                    {{ form.description }}
+                    {{ form.description.errors }}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><i class="bi bi-flag"></i> {{ form.status.label }}</label>
+                        {{ form.status }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><i class="bi bi-bar-chart-steps"></i> {{ form.priority.label }}</label>
+                        {{ form.priority }}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label"><i class="bi bi-calendar-event"></i> {{ form.due_date.label }}</label>
+                        {{ form.due_date }}
+                        {{ form.due_date.errors }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary"><i class="bi bi-check2"></i> Зберегти</button>
+                <a href="{% url 'task_list' %}" class="btn btn-outline-secondary">Скасувати</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
